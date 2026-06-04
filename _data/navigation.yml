@@ -1,16 +1,17 @@
-- title: Docs
-  url: docs/home
-  
-- title: Examples
-  url: docs/examples/cheatsheet
-  
-- title: Finanças
-  sublinks:
-  - title: Home
-    url: docs/finance/index
-  - title: separator
-  - title: Indicadores
-    url: docs/finance/indicadores
-  - title: separator
-  - title: Renda Fixa
-    url: docs/finance/renda-fixa/index  
+- title: Início
+  url: "#inicio"
+
+- title: Sobre
+  url: "#sobre"
+
+- title: Atuação
+  url: "#atuacao"
+
+- title: Projetos
+  url: "#projetos"
+
+- title: Competências
+  url: "#competencias"
+
+- title: Contato
+  url: "#contato"
