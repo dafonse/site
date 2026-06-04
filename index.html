@@ -1,54 +1,575 @@
 ---
 layout: default
+title: Engenharia, IA e Sistemas Inteligentes
+description: Portfólio profissional com projetos de engenharia, inteligência artificial, visão computacional, automação e desenvolvimento de produtos digitais.
 ---
 
-<div class="header-container jumbotron">
-    <div class="container">
-        <h1>Jekyll Template for Project Websites</h1>
-        <p>Simple and modern design for publishing blog posts, documentation and many more things about your project.
-          You can now clone and start to create a website for your project like this one.</p>
-        <p><a class="btn btn-primary btn-lg" href="{{ "/docs/home/" | relative_url }}" role="button">Learn more</a></p>
-    </div>
-</div>
+<style>
+:root {
+  --ink: #172033;
+  --muted: #5b667a;
+  --line: #e6eaf0;
+  --soft: #f6f8fb;
+  --brand: #0f766e;
+  --brand-dark: #0f4f4a;
+  --card: #ffffff;
+}
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <h2 class="header-light regular-pad">What is Jekyll?</h2>
-              <p class="lead">Jekyll is a simple, blog-aware, static site generator. It takes a template
-              directory containing raw text files in various formats, runs it through
-              a converter (like <a href="https://daringfireball.net/projects/markdown/">Markdown</a>)
-              and our <a href="https://github.com/Shopify/liquid/wiki">Liquid</a> renderer, and
-              spits out a complete, ready-to-publish static website suitable
-              for serving with your favorite web server. Jekyll also happens to be the engine
-              behind <a href="https://pages.github.com">GitHub Pages</a>, which means you can use Jekyll
-              to host your project’s page, blog, or website from GitHub’s servers <strong>for
-              free</strong>.</p>
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--ink);
+  background: #ffffff;
+}
+
+.professional-home {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.hero {
+  padding: 120px 0 72px;
+  background:
+    radial-gradient(circle at top right, rgba(15,118,110,0.16), transparent 28rem),
+    linear-gradient(135deg, #f8fafc 0%, #eef6f5 100%);
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 7px 12px;
+  border: 1px solid rgba(15,118,110,0.22);
+  border-radius: 999px;
+  color: var(--brand-dark);
+  background: rgba(15,118,110,0.08);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0 0 20px;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: .95;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+}
+
+.hero .lead {
+  max-width: 780px;
+  color: var(--muted);
+  font-size: 21px;
+  line-height: 1.55;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.action-primary,
+.action-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none !important;
+}
+
+.action-primary {
+  color: #fff !important;
+  background: var(--brand);
+  box-shadow: 0 12px 28px rgba(15,118,110,.22);
+}
+
+.action-primary:hover {
+  background: var(--brand-dark);
+}
+
+.action-secondary {
+  color: var(--ink) !important;
+  background: #fff;
+  border: 1px solid var(--line);
+}
+
+.profile-card {
+  padding: 28px;
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(255,255,255,.8);
+  border-radius: 28px;
+  box-shadow: 0 24px 60px rgba(23,32,51,.10);
+  backdrop-filter: blur(10px);
+}
+
+.profile-card h2 {
+  margin-top: 0;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.profile-card ul {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.profile-card li {
+  padding: 11px 0;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+}
+
+.section {
+  padding: 72px 0;
+}
+
+.section.alt {
+  background: var(--soft);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.section-header {
+  max-width: 760px;
+  margin-bottom: 34px;
+}
+
+.section-header h2 {
+  margin: 0 0 12px;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.section-header p {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.metric,
+.card,
+.project-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: 0 14px 34px rgba(23,32,51,.06);
+}
+
+.metric {
+  padding: 24px;
+}
+
+.metric strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.metric span {
+  color: var(--muted);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.card {
+  padding: 26px;
+}
+
+.card h3 {
+  margin: 0 0 12px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.card p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.tag {
+  padding: 7px 10px;
+  color: var(--brand-dark);
+  background: rgba(15,118,110,.08);
+  border: 1px solid rgba(15,118,110,.16);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.project-card {
+  padding: 26px;
+}
+
+.project-card h3 {
+  margin: 0 0 8px;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.project-card h3 a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.project-card h3 a:hover {
+  color: var(--brand);
+}
+
+.project-card p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.stack-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.stack-item {
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.timeline {
+  border-left: 3px solid rgba(15,118,110,.22);
+  padding-left: 24px;
+}
+
+.timeline-item {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.timeline-item h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.timeline-item p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.contact-box {
+  padding: 34px;
+  border-radius: 26px;
+  background: linear-gradient(135deg, #0f766e, #172033);
+  color: #fff;
+}
+
+.contact-box h2 {
+  margin-top: 0;
+  font-size: 34px;
+  font-weight: 800;
+}
+
+.contact-box p {
+  max-width: 780px;
+  color: rgba(255,255,255,.82);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.contact-box .action-secondary {
+  background: rgba(255,255,255,.12);
+  color: #fff !important;
+  border-color: rgba(255,255,255,.24);
+}
+
+@media (max-width: 991px) {
+  .hero-grid,
+  .grid-3,
+  .project-grid,
+  .metrics,
+  .stack-list {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 96px;
+  }
+}
+</style>
+
+<main class="professional-home" id="inicio">
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Portfólio profissional</span>
+          <h1>Dafonse</h1>
+          <p class="lead">
+            Engenharia, inteligência artificial e desenvolvimento de sistemas digitais aplicados a problemas reais.
+            Atuação em visão computacional, automação, robótica, finanças, produtos veiculares e arquiteturas de software.
+          </p>
+          <div class="actions">
+            <a class="action-primary" href="#projetos">Ver projetos</a>
+            <a class="action-secondary" href="https://github.com/dafonse">GitHub</a>
+          </div>
         </div>
-        <div class="col-md-6 text-center">
-            <img src="{{ "/assets/img/jekyll-dark.png" | relative_url }}" alt="Jekyll logo" class="img-responsive">
-        </div>
+
+        <aside class="profile-card">
+          <h2>Foco profissional</h2>
+          <ul>
+            <li>IA aplicada, automação e visão computacional</li>
+            <li>Robótica, Raspberry Pi, ROS e sistemas embarcados</li>
+            <li>Produtos digitais para engenharia e mobilidade</li>
+            <li>Organização técnica, prototipagem e validação</li>
+          </ul>
+        </aside>
+      </div>
     </div>
-    <hr>
-    <div class="row">
-        <div class="col-sm-4">
-            <h1 class="text-center"><i class="fa fa-pencil" aria-hidden="true"></i></h1>
-            <h3 class="text-center">Easy to install and publish</h3>
-            <p>Get started by cloning source into GitHub account of your project. Thanks to <a href="https://pages.github.com">GitHub Pages</a>,
-              it will be automatically compiled and published under your account's (or organisation's) subdomain under <code>github.io</code>.
-            </p>
+  </section>
+
+  <section class="section" id="sobre">
+    <div class="container">
+      <div class="section-header">
+        <h2>Sobre</h2>
+        <p>
+          Esta página reúne projetos, competências e linhas de atuação em engenharia e software.
+          A proposta é apresentar um portfólio objetivo, técnico e orientado a aplicações: sistemas que capturam dados,
+          processam informação, integram modelos de IA e entregam soluções úteis para operação, análise e tomada de decisão.
+        </p>
+      </div>
+
+      <div class="metrics">
+        <div class="metric">
+          <strong>IA</strong>
+          <span>modelos, visão computacional e automação</span>
         </div>
-        <div class="col-sm-4">
-            <h1 class="text-center"><i class="fa fa-cogs" aria-hidden="true"></i></h1>
-            <h3 class="text-center">Modular Styling and Templating</h3>
-            <p>This template uses <a href="https://github.com/twbs/bootstrap-sass">bootstrap-sass</a> along with <a href="https://bootswatch.com/">Bootwatch themes</a>.
-            You can change the theme or write your custom one by overwriting bootstrap sass variables for a different color set, font options, etc.</p>
+        <div class="metric">
+          <strong>IoT</strong>
+          <span>Raspberry Pi, firmware e sistemas conectados</span>
         </div>
-        <div class="col-sm-4">
-            <h1 class="text-center"><i class="fa fa-code-fork" aria-hidden="true"></i></h1>
-            <h3 class="text-center">Git-based source control</h3>
-            <p>Leverage from Git version control system by
-              maintaining your documentation along with the source code; publish the page when you merge to the master branch.</p>
+        <div class="metric">
+          <strong>Web</strong>
+          <span>interfaces, aplicações e documentação técnica</span>
         </div>
+        <div class="metric">
+          <strong>Dados</strong>
+          <span>pipelines, análise e apoio à decisão</span>
+        </div>
+      </div>
     </div>
-</div>
+  </section>
+
+  <section class="section alt" id="atuacao">
+    <div class="container">
+      <div class="section-header">
+        <h2>Áreas de atuação</h2>
+        <p>
+          Atuação técnica na interseção entre engenharia, dados e produto, com foco em prototipagem rápida,
+          integração de ferramentas e desenvolvimento incremental.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <article class="card">
+          <h3>Inteligência artificial aplicada</h3>
+          <p>
+            Desenvolvimento de experimentos com modelos de IA, segmentação, detecção de objetos,
+            classificação de imagens e ferramentas de apoio à decisão.
+          </p>
+          <div class="tags">
+            <span class="tag">YOLO</span>
+            <span class="tag">Mask R-CNN</span>
+            <span class="tag">SAM</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Robótica e sistemas embarcados</h3>
+          <p>
+            Projetos com Raspberry Pi, atualização remota, automação, visão embarcada e integração com dispositivos físicos.
+          </p>
+          <div class="tags">
+            <span class="tag">Raspberry Pi</span>
+            <span class="tag">ROS</span>
+            <span class="tag">Firmware</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Produtos digitais e engenharia</h3>
+          <p>
+            Estruturação de aplicações, documentação técnica, ferramentas web e sistemas voltados a problemas de mobilidade,
+            finanças e produtividade.
+          </p>
+          <div class="tags">
+            <span class="tag">Produto</span>
+            <span class="tag">Web</span>
+            <span class="tag">Automação</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="projetos">
+    <div class="container">
+      <div class="section-header">
+        <h2>Projetos em destaque</h2>
+        <p>
+          Seleção inicial de repositórios públicos conectados a IA, visão computacional, robótica, finanças e produtos digitais.
+        </p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <h3><a href="https://github.com/dafonse/omnibot">omnibot</a></h3>
+          <p>Projeto de robótica/autonomia com potencial de integração entre visão computacional, controle e processamento embarcado.</p>
+          <div class="tags"><span class="tag">Robótica</span><span class="tag">Autonomia</span></div>
+        </article>
+
+        <article class="project-card">
+          <h3><a href="https://github.com/dafonse/vehicle-hub">vehicle-hub</a></h3>
+          <p>Base para soluções digitais ligadas a veículos, dados automotivos, manutenção, registro e organização de informações.</p>
+          <div class="tags"><span class="tag">Mobilidade</span><span class="tag">Produto digital</span></div>
+        </article>
+
+        <article class="project-card">
+          <h3><a href="https://github.com/dafonse/yolo-application">yolo-application</a></h3>
+          <p>Aplicação com foco em detecção de objetos por visão computacional, útil para protótipos de inspeção e automação visual.</p>
+          <div class="tags"><span class="tag">Visão computacional</span><span class="tag">YOLO</span></div>
+        </article>
+
+        <article class="project-card">
+          <h3><a href="https://github.com/dafonse/mask-rcnn">mask-rcnn</a></h3>
+          <p>Experimentos de segmentação e reconhecimento visual com arquitetura Mask R-CNN.</p>
+          <div class="tags"><span class="tag">Segmentação</span><span class="tag">Deep learning</span></div>
+        </article>
+
+        <article class="project-card">
+          <h3><a href="https://github.com/dafonse/rpi-updater">rpi-updater</a></h3>
+          <p>Ferramenta relacionada à manutenção e atualização de ambiente em Raspberry Pi.</p>
+          <div class="tags"><span class="tag">Raspberry Pi</span><span class="tag">DevOps</span></div>
+        </article>
+
+        <article class="project-card">
+          <h3><a href="https://github.com/dafonse/finance">finance</a></h3>
+          <p>Projeto voltado a organização financeira, automação de registros e análise de dados.</p>
+          <div class="tags"><span class="tag">Finanças</span><span class="tag">Dados</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="competencias">
+    <div class="container">
+      <div class="section-header">
+        <h2>Competências técnicas</h2>
+        <p>
+          Conjunto de tecnologias e práticas usadas para construir protótipos, pipelines e aplicações.
+        </p>
+      </div>
+
+      <div class="stack-list">
+        <div class="stack-item">Python</div>
+        <div class="stack-item">Git / GitHub</div>
+        <div class="stack-item">Computer Vision</div>
+        <div class="stack-item">Machine Learning</div>
+        <div class="stack-item">Raspberry Pi</div>
+        <div class="stack-item">ROS</div>
+        <div class="stack-item">Jekyll / GitHub Pages</div>
+        <div class="stack-item">HTML / CSS / JavaScript</div>
+        <div class="stack-item">Automação</div>
+        <div class="stack-item">Análise de dados</div>
+        <div class="stack-item">Documentação técnica</div>
+        <div class="stack-item">Produto digital</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="metodo">
+    <div class="container">
+      <div class="section-header">
+        <h2>Modo de trabalho</h2>
+        <p>
+          Processo orientado a entregas incrementais, começando pela definição do problema e avançando para protótipos testáveis.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>1. Entendimento do problema</h3>
+          <p>Levantamento de requisitos, restrições, dados disponíveis, contexto operacional e critérios de sucesso.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>2. Prototipagem técnica</h3>
+          <p>Construção rápida de uma solução mínima para validar viabilidade, arquitetura e pontos críticos.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>3. Integração e automação</h3>
+          <p>Organização de pipelines, interfaces, scripts e rotinas para transformar o protótipo em ferramenta utilizável.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>4. Documentação e evolução</h3>
+          <p>Registro técnico, melhoria incremental, organização do repositório e preparação para continuidade do desenvolvimento.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contato">
+    <div class="container">
+      <div class="contact-box">
+        <h2>Contato e colaboração</h2>
+        <p>
+          Para acompanhar projetos, revisar repositórios ou iniciar uma colaboração técnica, use o perfil do GitHub como ponto de partida.
+          Esta página pode ser expandida com LinkedIn, currículo, publicações, serviços e estudos de caso.
+        </p>
+        <div class="actions">
+          <a class="action-secondary" href="https://github.com/dafonse">Acessar GitHub</a>
+          <a class="action-secondary" href="#projetos">Ver projetos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
